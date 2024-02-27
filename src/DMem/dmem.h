@@ -85,42 +85,6 @@ dmem_ret_t DMem_Free(dmem_heap_t *p, void* ptr);
 // обработчик основного цикла для кучи
 void DMem_MainLoopProc(dmem_heap_t* p);
 
-// получить указатель на раздел по адресу
-static dmem_node_t* Private_DMem_GetPartPtr(dmem_heap_t* p, uint16_t addres);
-
-// получить адрес раздела
-static uint16_t Private_DMem_GetAddres(dmem_heap_t *p, dmem_node_t *node);
-
-// проверить кучу
-static dmem_ret_t Private_DMem_CheckHeap(dmem_heap_t* p);
-
-// отладка
-static void Private_DMem_DbgNode(dmem_node_t *p, dmem_heap_dbg_note_t *_free, dmem_heap_dbg_note_t *_alloc);
-
-// отладка
-static void Private_DMem_Dbg(dmem_heap_t* p);
-
-// создать раздел
-static dmem_node_t* Private_DMem_CreatePart(dmem_heap_t* p, uint16_t addres, uint16_t size, dmem_part_type_t type, uint16_t next_addres);
-
-// обновляем CRC
-static void Private_DMem_UpdCrc(dmem_node_t* p);
-
-// проверяем CRC
-static dmem_ret_t Private_DMem_CheckCrc(dmem_node_t* p);
-
-// разделить рездел на две части, первая часть размером size
-static void Private_DMem_SplitPart(dmem_heap_t* p, dmem_node_t* node, uint16_t size);
-
-// слить указанный раздел со следующим с проверкой на наличие последнего и свобоность обоих
-static void Private_DMem_MargePart(dmem_heap_t* p, dmem_node_t* node);
-
-// ищем последовательно расположенные пустые блоки
-static dmem_node_t* Private_DMem_FindLineFreeParts(dmem_heap_t* p);
-
-// вызываем cllback ошибки кучи
-static void Private_DMem_ErrCallback(dmem_heap_t* p);
-
 
 
 #endif /* APPLICATION_SUPPORTLIBS_DMEM_DMEM_H_ */

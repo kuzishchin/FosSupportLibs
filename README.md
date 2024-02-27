@@ -8,6 +8,7 @@ This library consists of some functionally independent parts.
 3. DMem - the realization of dynamic memory distribution (heap)
 4. Libs - the realization of common used functions
 5. Platform - the prototypes of platform dependent functions
+6. SDCard - the driver of SD card
 
 All library parts can be found in the folfer `/src`
 

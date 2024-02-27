@@ -23,6 +23,16 @@
 #include "SDCard/sd_spi.h"
 
 
+// ожидание пока карта занята
+static sd_error_code_t Private_SD_SPI_WaitWhileBusy(uint16_t retry);
+
+// ожидание отклика
+static uint8_t Private_SD_SPI_WaitResponse(uint8_t retry);
+
+// ожидание данных
+static sd_error_code_t Private_SD_SPI_WhaitData(uint16_t timeout);
+
+
 // инициализация протокола обмена данными с SD картой по SPI
 sd_error_code_t SD_SPI_Init()
 {

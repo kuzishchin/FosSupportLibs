@@ -23,12 +23,6 @@ void SL_Delay(uint32_t ms)
 }
 
 
-// получть системное время в мкс
-uint32_t SL_GetTick_us()
-{
-	return __HAL_TIM_GET_COUNTER(&htim6);
-}
-
 
 void FOS_Platform_MainTim_Start()
 {

@@ -25,6 +25,19 @@
 #include <string.h>
 
 
+// сброс карты памяти
+static sd_error_code_t Private_SD_Reset(sd_t *ptr, uint8_t retry);
+
+// проверить условия работы карты
+static sd_error_code_t Private_SD_CheckCond(sd_t *ptr, uint8_t retry);
+
+// инициализация карты памяти
+static sd_error_code_t Private_SD_Init(sd_t *ptr, uint16_t retry);
+
+// чтение параметров карты памяти
+static sd_error_code_t Private_SD_ReadOCR(sd_t *ptr, uint16_t retry);
+
+
 // инициализация
 sd_error_code_t SD_Init(sd_t *ptr, sd_init_t *init)
 {
@@ -249,7 +262,7 @@ static sd_error_code_t Private_SD_Reset(sd_t *ptr, uint8_t retry)
 static sd_error_code_t Private_SD_CheckCond(sd_t *ptr, uint8_t retry)
 {
 	uint8_t responce;
-	while(responce = SD_SPI_SendCmd(ptr, SD_SEND_IF_COND, SD_SEND_IF_COND_ARG) != 0x01)
+	while((responce = SD_SPI_SendCmd(ptr, SD_SEND_IF_COND, SD_SEND_IF_COND_ARG)) != 0x01)
 	{
 	    if(retry-- < 0x01)
 	    {

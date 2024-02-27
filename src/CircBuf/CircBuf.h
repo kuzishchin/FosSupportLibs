@@ -26,7 +26,7 @@
 
 #include <stdint.h>
 #include <string.h>                     // работа со строками
-#include "compiler_macros.h"
+#include "Platform/compiler_macros.h"
 
 
 
@@ -111,9 +111,6 @@ uint16_t CircBuf_DataCopyBetweenIndexes(circ_buf_t *ptr, uint8_t *dst, uint16_t 
 // Установить данные между индексами
 uint16_t CircBuf_DataSetBetweenIndexes(circ_buf_t *ptr, uint8_t val, uint16_t start_ind, uint16_t end_ind);
 
-
-// безопасная работа с переменной data_size
-static void Private_CircBuf_AddDataSizeValue(circ_buf_t *ptr, int16_t add);
 
 
 #endif /* APPLICATION_SUPPORTLIBS_CIRCBUF_H_ */

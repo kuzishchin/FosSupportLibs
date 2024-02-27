@@ -49,14 +49,6 @@ uint8_t SD_SPI_SendCmd(sd_t *ptr, uint8_t cmd, uint32_t arg);
 // послать расширенную команду
 uint8_t SD_SPI_SendAcmd(sd_t *ptr, uint8_t acmd, uint32_t arg);
 
-// ожидание пока карта занята
-static sd_error_code_t Private_SD_SPI_WaitWhileBusy(uint16_t retry);
-
-// ожидание отклика
-static uint8_t Private_SD_SPI_WaitResponse(uint8_t retry);
-
-// ожидание данных
-static sd_error_code_t Private_SD_SPI_WhaitData(uint16_t timeout);
 
 
 

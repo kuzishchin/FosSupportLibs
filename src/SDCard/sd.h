@@ -45,17 +45,6 @@ sd_error_code_t SD_StopWrite(sd_t *ptr);
 // тестовое чтение и запись
 sd_error_code_t SD_TestReadWrite(sd_t *ptr, uint32_t addres_blk, uint32_t block_count, uint8_t *wr_data, uint8_t *rd_data, uint32_t* write_time, uint32_t* read_time);
 
-// сброс карты памяти
-static sd_error_code_t Private_SD_Reset(sd_t *ptr, uint8_t retry);
-
-// проверить условия работы карты
-static sd_error_code_t Private_SD_CheckCond(sd_t *ptr, uint8_t retry);
-
-// инициализация карты памяти
-static sd_error_code_t Private_SD_Init(sd_t *ptr, uint16_t retry);
-
-// чтение параметров карты памяти
-static sd_error_code_t Private_SD_ReadOCR(sd_t *ptr, uint16_t retry);
 
 
 

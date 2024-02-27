@@ -25,6 +25,7 @@
 
 
 #include "SDCard/sd_types.h"
+#include "Platform/compiler_macros.h"
 
 
 // установить пин cs в состояние

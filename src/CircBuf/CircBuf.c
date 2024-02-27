@@ -24,6 +24,9 @@
 #include "CircBuf.h"
 
 
+// безопасная работа с переменной data_size
+static void Private_CircBuf_AddDataSizeValue(circ_buf_t *ptr, int16_t add);
+
 
 // инициализация
 void CircBuf_Init(circ_buf_t *ptr, circ_buf_init_t *init)

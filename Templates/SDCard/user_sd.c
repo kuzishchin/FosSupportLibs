@@ -6,8 +6,6 @@
 
 
 #include "SDCard/user_sd.h"
-//#include "user_thread.h"
-//#include "sl_platform.h"
 
 #ifndef USER_SD_DUMMY
 sd_t sd;
@@ -131,7 +129,6 @@ void USER_SD_TestReadWrite()
 void USER_SD_BlockThread()
 {
 #ifndef USER_SD_DUMMY
-//	USER_FOS_SemBinaryTake(&semb_spi3);
 	while(!sd.var.lock_counter);
 	if(sd.var.lock_counter)
 		sd.var.lock_counter--;
@@ -144,7 +141,6 @@ void USER_SD_ReleaseThread()
 {
 #ifndef USER_SD_DUMMY
 	sd.var.lock_counter++;
-//	USER_FOS_SemBinaryGive(&semb_spi3);
 #endif
 }
 
