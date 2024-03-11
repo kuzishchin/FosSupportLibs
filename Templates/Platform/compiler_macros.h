@@ -52,8 +52,8 @@
 
 	#define __weak __attribute__((weak))
 
-	#define ENTER_CRITICAL(x)       x = __get_BASEPRI(); __set_BASEPRI(1 << 4)
-    #define LEAVE_CRITICAL(x)       __set_BASEPRI(x)
+	#define ENTER_CRITICAL(x)       x = __get_PRIMASK(); __set_PRIMASK(1)
+    #define LEAVE_CRITICAL(x)       __set_PRIMASK(x)
 
 	#define DISABLE_INTERRUPT()   __set_PRIMASK(1)
 	#define ENABLE_INTERRUPT()    __set_PRIMASK(0)
