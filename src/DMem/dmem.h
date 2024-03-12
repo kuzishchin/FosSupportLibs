@@ -76,6 +76,12 @@ typedef struct
 // инициализация кучи
 dmem_ret_t DMem_HeapInit(dmem_heap_t *p, dmem_heap_init_t *init);
 
+// установить период проверки кучи
+dmem_ret_t DMem_SetProcPeriod(dmem_heap_t *p, uint32_t period_ms);
+
+// получить период проверки кучи
+uint32_t DMem_GetProcPeriod(dmem_heap_t *p);
+
 // выделить память
 void* DMem_Alloc(dmem_heap_t *p, uint32_t size_bytes);
 

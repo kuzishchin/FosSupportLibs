@@ -93,6 +93,31 @@ dmem_ret_t DMem_HeapInit(dmem_heap_t *p, dmem_heap_init_t *init)
 }
 
 
+// установить период проверки кучи
+dmem_ret_t DMem_SetProcPeriod(dmem_heap_t *p, uint32_t period_ms)
+{
+	if(p == NULL)
+		return DMEM_NULL_POINTER;
+
+	if(period_ms > DMEM_MAX_PROC_PERIOD_MS)
+		return DMEM_INIT_ERR;
+
+	p->set.proc_period_ms = period_ms;
+
+	return DMEM_OK;
+}
+
+
+// получить период проверки кучи
+uint32_t DMem_GetProcPeriod(dmem_heap_t *p)
+{
+	if(p == NULL)
+		return 0;
+
+	return p->set.proc_period_ms;
+}
+
+
 // выделить память
 void* DMem_Alloc(dmem_heap_t *p, uint32_t size_bytes)
 {

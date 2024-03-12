@@ -31,6 +31,7 @@
 #define DMEM_BLOCK_SIZE_BYTES    8        // размер блока памяти в байтах
 #define DMEM_ENDED_PART          0xFFFF   // отметка указвывающая отсутсвие следующей записи
 #define DMEM_DEF_PROC_PERIOD_MS  100      // период обработки основного цикла по умолчанию в мс
+#define DMEM_MAX_PROC_PERIOD_MS  1000     // максимальный период обработки основного цикла в мс
 
 
 // коды возвратов
