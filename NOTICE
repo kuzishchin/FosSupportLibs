@@ -1,0 +1,13 @@
+Fly Operating System Support Libs (FosSupportLibs)
+Copyright 2024 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+
+The Initial Developer of the GNU C Library of integer types, common definitions and string handling <stdint.h>, <stddef.h>, <string.h>,
+is Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+
+
+
+
