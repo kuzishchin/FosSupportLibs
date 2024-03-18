@@ -9,19 +9,16 @@
 #include "main.h"
 
 
-// получть системное время в мс
 uint32_t SL_GetTick()
 {
 	return HAL_GetTick();
 }
 
 
-// задержка
 void SL_Delay(uint32_t ms)
 {
 	HAL_Delay(ms);
 }
-
 
 
 void FOS_Platform_MainTim_Start()
@@ -54,7 +51,12 @@ uint32_t FOS_Platform_MainTim_GetCounter()
 }
 
 
-// вызов прерывания PendSV
+void FOS_Platform_MainTim_SetARR(uint32_t val)
+{
+	__HAL_TIM_SET_AUTORELOAD(&htim14, val - 1);
+}
+
+
 void CallPendSV()
 {
 	SCB->ICSR |= (0x1 << SCB_ICSR_PENDSVSET_Pos);
