@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      dmem.h
  * @brief     Dynamic memory distribution objects. Header file.
- * @version   V1.0.00
- * @date      12.01.2024
+ * @version   V1.0.01
+ * @date      02.04.2024
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.
@@ -87,6 +87,9 @@ void* DMem_Alloc(dmem_heap_t *p, uint32_t size_bytes);
 
 // освободить память
 dmem_ret_t DMem_Free(dmem_heap_t *p, void* ptr);
+
+// проверить кучу
+dmem_ret_t DMem_CheckHeap(dmem_heap_t* p);
 
 // обработчик основного цикла для кучи
 void DMem_MainLoopProc(dmem_heap_t* p);

@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      dmem.c
  * @brief     Dynamic memory distribution objects. Source file.
- * @version   V1.0.00
- * @date      12.01.2024
+ * @version   V1.0.01
+ * @date      02.04.2024
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.
@@ -31,9 +31,6 @@ static dmem_node_t* Private_DMem_GetPartPtr(dmem_heap_t* p, uint16_t addres);
 
 // получить адрес раздела
 static uint16_t Private_DMem_GetAddres(dmem_heap_t *p, dmem_node_t *node);
-
-// проверить кучу
-static dmem_ret_t Private_DMem_CheckHeap(dmem_heap_t* p);
 
 // отладка
 static void Private_DMem_DbgNode(dmem_node_t *p, dmem_heap_dbg_note_t *_free, dmem_heap_dbg_note_t *_alloc);
@@ -249,26 +246,15 @@ dmem_ret_t DMem_Free(dmem_heap_t *p, void* ptr)
 }
 
 
-// обработчик основного цикла для кучи
-void DMem_MainLoopProc(dmem_heap_t* p)
+// проверить кучу
+dmem_ret_t DMem_CheckHeap(dmem_heap_t* p)
 {
 	if(p == NULL)
-		return;
+		return DMEM_NULL_POINTER;
 
 	if(p->var.state == DMEM_NO_INIT)
-		return;
+		return DMEM_INIT_ERR;
 
-	if((SL_GetTick() - p->var.ts) < p->set.proc_period_ms)
-		return;
-	p->var.ts = SL_GetTick();
-
-	Private_DMem_CheckHeap(p);
-}
-
-
-// проверить кучу
-static dmem_ret_t Private_DMem_CheckHeap(dmem_heap_t* p)
-{
 	dmem_ret_t ret = DMEM_OK;
 	uint16_t addres = 0;
 	dmem_node_t* node_ptr = NULL;
@@ -305,6 +291,23 @@ static dmem_ret_t Private_DMem_CheckHeap(dmem_heap_t* p)
 	p->dbg.addres_err_part = DMEM_ENDED_PART;
 
 	return ret;
+}
+
+
+// обработчик основного цикла для кучи
+void DMem_MainLoopProc(dmem_heap_t* p)
+{
+	if(p == NULL)
+		return;
+
+	if(p->var.state == DMEM_NO_INIT)
+		return;
+
+	if((SL_GetTick() - p->var.ts) < p->set.proc_period_ms)
+		return;
+	p->var.ts = SL_GetTick();
+
+	DMem_CheckHeap(p);
 }
 
 
