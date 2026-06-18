@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      msg.h
  * @brief     Message buffer for 32 bits data. Header file.
- * @version   V1.0.00
- * @date      06.02.2026
+ * @version   V1.0.01
+ * @date      18.05.2026
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.
@@ -65,7 +65,7 @@ msg32_ret_t Msg32_ReadData(msg32_t* p, uint32_t* data_ptr);
 msg32_ret_t Msg32_WriteDataProtected(msg32_t* p, uint32_t data);
 
 // read in thread safe mode
-msg32_ret_t Msg32_WriteReadProtected(msg32_t* p, uint32_t* data_ptr);
+msg32_ret_t Msg32_ReadDataProtected(msg32_t* p, uint32_t* data_ptr);
 
 
 
