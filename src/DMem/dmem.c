@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      dmem.c
  * @brief     Dynamic memory distribution objects. Source file.
- * @version   V1.0.01
- * @date      02.04.2024
+ * @version   V1.0.02
+ * @date      06.07.2026
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.
@@ -231,6 +231,9 @@ dmem_ret_t DMem_Free(dmem_heap_t *p, void* ptr)
 		if(checked_addres == shift)                      // если адрес и смещение совпали, выходим из цикла
 			break;
 	}
+
+	if(checked_addres != shift)                          // проверка что нашли верный адрес
+		return DMEM_WRONG_ADR;
 
 	node_ptr->part_type = DMEM_FREE;                     // освобождаем раздел
 	Private_DMem_UpdCrc(node_ptr);                       // обновляем CRC

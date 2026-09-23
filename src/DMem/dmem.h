@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      dmem.h
  * @brief     Dynamic memory distribution objects. Header file.
- * @version   V1.0.01
- * @date      02.04.2024
+ * @version   V1.0.02
+ * @date      06.07.2026
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.

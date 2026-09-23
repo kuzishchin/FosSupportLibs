@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file      dmem_types.h
  * @brief     Dynamic memory distribution types declarations. Header file.
- * @version   V1.0.00
- * @date      12.01.2024
+ * @version   V1.0.01
+ * @date      06.07.2026
  ******************************************************************************/
 /*
 * Copyright 2024 Yury A. Kuzishchin and Vitaly A. Kostarev. All rights reserved.
@@ -43,6 +43,7 @@ typedef enum
 	DMEM_WRONG_CRC = 3,          // неверный CRC
 	DMEM_OUT_OF_HEAP = 4,        // указатель за пределами кучи
 	DMEM_WRONG_ALLIG = 5,        // неверное выравнивание
+	DMEM_WRONG_ADR = 6,          // неверный адрес
 
 } dmem_ret_t;
 
